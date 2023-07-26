@@ -1,5 +1,7 @@
 import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
+import ButtonLink from '@/components/Common/ButtonLink'
+import JobsList from '@/components/Jobs/JobsList'
 
 const Dashboard = () => {
     return (
@@ -18,8 +20,10 @@ const Dashboard = () => {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
                             You're logged in!
+                            <ButtonLink href="/">home</ButtonLink>
                         </div>
                     </div>
+                    <JobsList />
                 </div>
             </div>
         </AppLayout>
