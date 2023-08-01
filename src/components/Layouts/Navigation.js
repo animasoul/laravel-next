@@ -1,4 +1,4 @@
-import ApplicationLogo from '@/components/Common/ApplicationLogo'
+import Image from 'next/image'
 import Dropdown from '@/components/Common/Dropdown'
 import Link from 'next/link'
 import NavLink from '@/components/Common/NavLink'
@@ -25,17 +25,25 @@ const Navigation = ({ user }) => {
                     <div className="flex">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
-                            <Link href="/dashboard">
-                                <ApplicationLogo className="block h-10 w-auto fill-current text-gray-600" />
+                            <Link href="/jobsearch">
+                                <Image
+                                    src="/meta-logo-WHT-60x62.png"
+                                    alt="META Consultancy ELT Job Search logo"
+                                    width={50}
+                                    height={52}
+                                />
                             </Link>
                         </div>
 
                         {/* Navigation Links */}
                         <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <NavLink href="/" active={router.pathname === '/'}>
+                                Home
+                            </NavLink>
                             <NavLink
-                                href="/dashboard"
-                                active={router.pathname === '/dashboard'}>
-                                Dashboard
+                                href="/jobsearch"
+                                active={router.pathname === '/jobsearch'}>
+                                jobsearch
                             </NavLink>
                         </div>
                     </div>
@@ -108,9 +116,14 @@ const Navigation = ({ user }) => {
                 <div className="block sm:hidden">
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
-                            href="/dashboard"
-                            active={router.pathname === '/dashboard'}>
-                            Dashboard
+                            href="/"
+                            active={router.pathname === '/'}>
+                            Home
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href="/jobsearch"
+                            active={router.pathname === '/jobsearch'}>
+                            Job Search
                         </ResponsiveNavLink>
                     </div>
 

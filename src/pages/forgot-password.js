@@ -1,11 +1,11 @@
 import ApplicationLogo from '@/components/Common/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import AuthSessionStatus from '@/components/AuthSessionStatus'
-import Button from '@/components/Button'
+import AuthCard from '@/components/Common/AuthCard'
+import AuthSessionStatus from '@/components/Common/AuthSessionStatus'
+import Button from '@/components/Common/Button'
 import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
+import Input from '@/components/Common/Input'
+import InputError from '@/components/Common/InputError'
+import Label from '@/components/Common/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
@@ -13,7 +13,7 @@ import { useState } from 'react'
 const ForgotPassword = () => {
     const { forgotPassword } = useAuth({
         middleware: 'guest',
-        redirectIfAuthenticated: '/dashboard',
+        redirectIfAuthenticated: '/jobsearch',
     })
 
     const [email, setEmail] = useState('')
@@ -31,7 +31,7 @@ const ForgotPassword = () => {
             <AuthCard
                 logo={
                     <Link href="/">
-                        <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+                        <ApplicationLogo className="w-20 h-24 fill-current text-gray-500" />
                     </Link>
                 }>
                 <div className="mb-4 text-sm text-gray-600">

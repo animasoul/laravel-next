@@ -5,6 +5,10 @@ export const ReadMore = ({ children, maxHeight = '120px', job_apply_link }) => {
     const [isExpanded, setIsExpanded] = useState(false)
     const [buttonText, setButtonText] = useState('... Read More')
 
+    const isEmpty =
+        !children ||
+        (typeof children === 'string' && children.trim().length === 0)
+
     const expandContainer = () => {
         if (isExpanded) {
             setIsExpanded(false)
@@ -23,14 +27,17 @@ export const ReadMore = ({ children, maxHeight = '120px', job_apply_link }) => {
                     maxHeight: isExpanded ? '6000px' : maxHeight,
                     overflow: 'hidden',
                     transition: 'max-height 0.5s ease-in-out',
+                    minHeight: '120px',
                 }}>
-                {children}
+                {isEmpty ? 'N/A' : children}
             </div>
-            <button
-                onClick={expandContainer}
-                className="cursor-pointer mx-auto my-3 items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-                {buttonText}
-            </button>
+            {!isEmpty && (
+                <button
+                    onClick={expandContainer}
+                    className="cursor-pointer mx-auto my-3 items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                    {buttonText}
+                </button>
+            )}
             <Link
                 type="button"
                 href={job_apply_link}
