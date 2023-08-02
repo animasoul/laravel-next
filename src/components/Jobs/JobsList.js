@@ -38,8 +38,6 @@ export default function JobsList() {
         setQuery(inputValue)
     }
 
-    console.log('Jobs data in JobsList:', jobs)
-
     if (!jobs || jobs.length === 0) {
         return <div>Loading...</div>
     }
