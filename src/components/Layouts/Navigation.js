@@ -15,6 +15,8 @@ const Navigation = ({ user }) => {
 
     const { logout } = useAuth()
 
+    const isDemoUser = process.env.NEXT_PUBLIC_LOGIN === 'false'
+
     const [open, setOpen] = useState(false)
 
     return (
@@ -72,9 +74,17 @@ const Navigation = ({ user }) => {
                                 </button>
                             }>
                             {/* Authentication */}
-                            <DropdownButton onClick={logout}>
-                                Logout
-                            </DropdownButton>
+                            {isDemoUser ? (
+                                <Link
+                                    href="/"
+                                    className="w-full text-left block px-4 py-2 text-sm leading-5 text-gray-700 bg-gray-100">
+                                    Home
+                                </Link>
+                            ) : (
+                                <DropdownButton onClick={logout}>
+                                    Logout
+                                </DropdownButton>
+                            )}
                         </Dropdown>
                     </div>
 

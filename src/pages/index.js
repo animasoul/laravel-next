@@ -130,7 +130,7 @@ export default function Home() {
                                     <Avatar img="/abel.jpg" rounded size="sm">
                                         <div className="space-y-1 font-medium dark:text-white">
                                             <div>Abel Rogers M.Sc.</div>
-                                            <div className="text-sm text-gray-500 dark:text-gray-400">
+                                            <div className="text-sm text-gray-500 dark:text-gray-400 sm:w-full w-60">
                                                 Founder of{' '}
                                                 <a
                                                     href="https://www.ajpartnersltd.com/"
