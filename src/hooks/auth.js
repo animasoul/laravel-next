@@ -6,15 +6,28 @@ import { useRouter } from 'next/router'
 export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
 
-    const { data: user, error, mutate } = useSWR('/api/user', () =>
-        axios
-            .get('/api/user')
-            .then(res => res.data)
-            .catch(error => {
-                if (error.response.status !== 409) throw error
+    const isDemoLogin = process.env.NEXT_PUBLIC_LOGIN === 'false'
 
-                router.push('/verify-email')
-            }),
+    // Define a demo user object
+    const demoUser = isDemoLogin
+        ? {
+              id: 1,
+              name: 'Demo User',
+              email: 'demo@example.com',
+          }
+        : null
+
+    const { data: user = demoUser, error, mutate } = useSWR('/api/user', () =>
+        isDemoLogin
+            ? demoUser
+            : axios
+                  .get('/api/user')
+                  .then(res => res.data)
+                  .catch(error => {
+                      if (error.response.status !== 409) throw error
+
+                      router.push('/verify-email')
+                  }),
     )
 
     const csrf = () => axios.get('/sanctum/csrf-cookie')
