@@ -59,7 +59,9 @@ const Login = () => {
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div>
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="email">
+                            Email (use demo@demo.com if you like?)
+                        </Label>
 
                         <Input
                             id="email"
@@ -76,7 +78,9 @@ const Login = () => {
 
                     {/* Password */}
                     <div className="mt-4">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password">
+                            Password (use demo1234 for demo)
+                        </Label>
 
                         <Input
                             id="password"
