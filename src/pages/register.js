@@ -42,6 +42,10 @@ const Register = () => {
                     </Link>
                 }>
                 <form onSubmit={submitForm}>
+                    <div>
+                        Registration is not compulsory you can login with demo
+                        account
+                    </div>
                     {/* Name */}
                     <div>
                         <Label htmlFor="name">Name</Label>
@@ -119,6 +123,7 @@ const Register = () => {
                     </div>
 
                     <div className="flex items-center justify-end mt-4">
+                        <div>You can simply login with demo credentials</div>
                         <Link
                             href="/login"
                             className="underline text-sm text-gray-600 hover:text-gray-900">
