@@ -1,28 +1,42 @@
-# Laravel Breeze - Next.js Edition 🏝️
+<p align="center"><a href="https://www.ajpartnersltd.com.com" target="_blank"><img src="https://www.ajpartnersltd.com/wp-content/uploads/2023/03/aj-partners-ltd-low-resolution-logo-color-on-transparent-background2.png" width="400" alt="AJ Partners Ltd. Logo"></a></p>
+
+# Laravel Breeze - Next.js Edition - (AJ Partners Ltd Edition)
 
 ## Introduction
 
-This repository is an implementation of the [Laravel Breeze](https://laravel.com/docs/starter-kits) application / authentication starter kit frontend in [Next.js](https://nextjs.org). All of the authentication boilerplate is already written for you - powered by [Laravel Sanctum](https://laravel.com/docs/sanctum), allowing you to quickly begin pairing your beautiful Next.js frontend with a powerful Laravel backend.
+This repository is a customized implementation of the [Laravel Breeze](https://laravel.com/docs/starter-kits) application / authentication starter kit frontend in [Next.js](https://nextjs.org). Based on the original code from [laravel/breeze-next](https://github.com/laravel/breeze-next), this version is tailored by [AJ Partners Ltd](https://www.ajpartnersltd.com/) and serves as the frontend to the [Laravel API](https://github.com/animasoul/laravel-api) for a job search application.
+
+### Demo Application
+
+The application allows users to search for jobs through the [JSearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch). Users can create accounts, log in, and access various job search functionalities. You can find the demo of the working project [here](https://jobs.meta.mt/).
+
+> Note: To interact with the JSearch API, users will need to sign up on [RapidAPI](https://rapidapi.com/) and obtain API access keys.
 
 ## Official Documentation
 
 ### Installation
 
-First, create a Next.js compatible Laravel backend by installing Laravel Breeze into a [fresh Laravel application](https://laravel.com/docs/installation) and installing Breeze's API scaffolding:
+The steps for installation remain unchanged from the original Laravel Breeze Next.js Edition. Here's how you can set it up:
+
+1. Create the Laravel backend by following the instructions [here](https://github.com/animasoul/laravel-api#installation).
+2. Clone this repository and proceed with the frontend setup:
 
 ```bash
-# Create the Laravel application...
-laravel new next-backend
+# Clone the repository...
+git clone https://github.com/animasoul/laravel-next.git
 
-cd next-backend
+cd laravel-next
 
-# Install Breeze and dependencies...
-composer require laravel/breeze --dev
+# Install dependencies...
+yarn install # or npm install
 
-php artisan breeze:install api
+# Copy the example env file and configure...
+cp .env.example .env.local
+# Set the backend URL
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 
-# Run database migrations...
-php artisan migrate
+# Run the application...
+npm run dev
 ```
 
 Next, ensure that your application's `APP_URL` and `FRONTEND_URL` environment variables are set to `http://localhost:8000` and `http://localhost:3000`, respectively.
