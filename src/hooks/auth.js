@@ -63,14 +63,19 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             })
     }
 
-    const forgotPassword = async ({ setErrors, setStatus, email }) => {
+    const forgotPassword = async ({
+        setErrors,
+        setStatus,
+        email,
+        ...props
+    }) => {
         await csrf()
 
         setErrors([])
         setStatus(null)
 
         axios
-            .post('/forgot-password', { email })
+            .post('/forgot-password', { email, ...props })
             .then(response => setStatus(response.data.status))
             .catch(error => {
                 if (error.response.status !== 422) throw error
