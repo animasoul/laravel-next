@@ -19,8 +19,8 @@ import SearchBox from '@/utils/searchBox'
 import PaginationWithIcons from '@/utils/pagination'
 
 export default function JobsList() {
-    const [query, setQuery] = useState('English Teacher, Malta')
-    const [inputValue, setInputValue] = useState('English Teacher, Malta')
+    const [query, setQuery] = useState('English Teacher')
+    const [inputValue, setInputValue] = useState('English Teacher')
     const [currentPage, setCurrentPage] = useState(1)
 
     const { data: response } = useFetch('search', { query }, currentPage)
