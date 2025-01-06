@@ -98,19 +98,23 @@ export default function JobsList() {
                                 )}
                             </div>
                             <div className="row-start-6">
-                                {job.job_city}, {job.job_state},{' '}
-                                {job.job_country} -{' '}
-                                <Link
-                                    href={getGoogleMapsLink(
-                                        job.job_latitude,
-                                        job.job_longitude,
-                                    )}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                    Google Maps
-                                    <MdArrowOutward />
-                                </Link>
+                                {job.job_city}, {job.job_state}, {job.job_country}
+                                {job.job_latitude && job.job_longitude && (
+                                    <>
+                                        {' - '}
+                                        <Link
+                                            href={getGoogleMapsLink(
+                                                job.job_latitude,
+                                                job.job_longitude,
+                                            )}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                            Google Maps
+                                            <MdArrowOutward />
+                                        </Link>
+                                    </>
+                                )}
                             </div>
                             <div className="row-start-7 h-full items-center">
                                 <Tabs.Group
