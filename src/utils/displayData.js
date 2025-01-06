@@ -6,24 +6,40 @@ const formatKey = key => {
     return formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1)
 }
 
+const getColor = value => {
+    if (value === null) return 'text-gray-500'
+    if (typeof value === 'boolean')
+        return value ? 'text-green-500' : 'text-red-500'
+    return 'text-black'
+}
+
+const getText = value => {
+    if (value === null) return 'N/A'
+    if (typeof value === 'boolean') return value ? 'Yes' : 'No'
+    return value
+}
+
 export const DisplayData = ({ data }) => {
-    if (!data) return null;
+    if (!data) return null
 
     if (typeof data !== 'object') {
-        return <p>{String(data)}</p>;
+        return <p>{String(data)}</p>
     }
 
-    const getColor = value => {
-        if (value === null) return 'text-gray-500'
-        if (typeof value === 'boolean')
-            return value ? 'text-green-500' : 'text-red-500'
-        return 'text-black'
+    // Handle arrays
+    if (Array.isArray(data)) {
+        return (
+            <div>
+                {data.map((item, index) => (
+                    <p key={index}>{String(item)}</p>
+                ))}
+            </div>
+        )
     }
 
-    const getText = value => {
-        if (value === null) return 'N/A'
-        if (typeof value === 'boolean') return value ? 'Yes' : 'No'
-        return value
+    // Final check to ensure we have a valid object before using Object.entries
+    if (data === null || typeof data !== 'object') {
+        return null
     }
 
     return (
