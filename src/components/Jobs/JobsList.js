@@ -58,7 +58,9 @@ export default function JobsList() {
                                 <div className="grid grid-rows-auto p-4 bg-white border-b border-gray-200 sm:p-6">
                                     <div className="row-start-1">
                                         <img
-                                            src={checkImageURL(job.employer_logo)}
+                                            src={checkImageURL(
+                                                job.employer_logo,
+                                            )}
                                             alt={job.employer_name}
                                             className="h-24 max-h-24 rounded border bg-white p-1 shadow-sm mx-auto"
                                         />
@@ -89,7 +91,9 @@ export default function JobsList() {
                                     </div>
                                     <div className="row-start-4 text-center sm:text-left">
                                         Posted:{' '}
-                                        {daysFromNow(job.job_posted_at_datetime_utc)}
+                                        {daysFromNow(
+                                            job.job_posted_at_datetime_utc,
+                                        )}
                                     </div>
                                     <div className="row-start-5 text-center sm:text-left">
                                         Expires:{' '}
@@ -98,7 +102,8 @@ export default function JobsList() {
                                         )}
                                     </div>
                                     <div className="row-start-6">
-                                        {job.job_city}, {job.job_state}, {job.job_country}
+                                        {job.job_city}, {job.job_state},{' '}
+                                        {job.job_country}
                                         {job.job_latitude && job.job_longitude && (
                                             <>
                                                 {' - '}
@@ -127,7 +132,9 @@ export default function JobsList() {
                                                 title="Description">
                                                 <ReadMore
                                                     maxCharacterCount={150}
-                                                    job_apply_link={job.job_apply_link}>
+                                                    job_apply_link={
+                                                        job.job_apply_link
+                                                    }>
                                                     {job.job_description}
                                                     <DisplayData
                                                         data={
@@ -141,8 +148,13 @@ export default function JobsList() {
                                                 title="Qualifications">
                                                 <ReadMore
                                                     maxCharacterCount={150}
-                                                    job_apply_link={job.job_apply_link}>
-                                                    {job.job_highlights.Qualifications}
+                                                    job_apply_link={
+                                                        job.job_apply_link
+                                                    }>
+                                                    {
+                                                        job.job_highlights
+                                                            .Qualifications
+                                                    }
                                                     <DisplayData
                                                         data={
                                                             job.job_required_education
@@ -155,7 +167,9 @@ export default function JobsList() {
                                                 title="Responsibilities">
                                                 <ReadMore
                                                     maxCharacterCount={150}
-                                                    job_apply_link={job.job_apply_link}>
+                                                    job_apply_link={
+                                                        job.job_apply_link
+                                                    }>
                                                     {
                                                         job.job_highlights
                                                             .Responsibilities
@@ -167,8 +181,13 @@ export default function JobsList() {
                                                 title="Benefits">
                                                 <ReadMore
                                                     maxCharacterCount={150}
-                                                    job_apply_link={job.job_apply_link}>
-                                                    {job.job_highlights.Benefits}
+                                                    job_apply_link={
+                                                        job.job_apply_link
+                                                    }>
+                                                    {
+                                                        job.job_highlights
+                                                            .Benefits
+                                                    }
                                                 </ReadMore>
                                             </Tabs.Item>
                                         </Tabs.Group>
