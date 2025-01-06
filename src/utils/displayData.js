@@ -7,6 +7,12 @@ const formatKey = key => {
 }
 
 export const DisplayData = ({ data }) => {
+    if (!data) return null;
+
+    if (typeof data !== 'object') {
+        return <p>{String(data)}</p>;
+    }
+
     const getColor = value => {
         if (value === null) return 'text-gray-500'
         if (typeof value === 'boolean')
